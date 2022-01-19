@@ -184,18 +184,9 @@ for iline in range(len(put_mm_score)):
 #a. we do it for the put. off-target
 #
 # we store the image in im
-im = np.zeros((len(put_mm_score) + len(df_max), 8, 23))
+im = np.zeros((len(df_max), 8, 23))
 #
 cnt = 0
-for n in range(0, len(seq_sgRNA_DNA), 2):
-  arr1 = one_hot_encode_seq("".join(seq_sgRNA_DNA[n].decode()))
-  arr1 = np.asarray(arr1).T
-  arr2 = one_hot_encode_seq("".join(seq_sgRNA_DNA[n + 1].decode()))
-  arr2 = np.asarray(arr2).T
-  arr = np.concatenate((arr1, arr2)) * 254
-  im[cnt] = arr
-  cnt += 1
-
 #b. we do it for the val. off-target
 for n in range(len(df_max)):
 	# arr1 = one_hot_encode_seq(df_max.loc[n, 'guideSeq'])
