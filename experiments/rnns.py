@@ -9,7 +9,7 @@ Version |    Date     |   Author    |   Comment
 #
 #
 import tensorflow as tf
-from keras.utils import to_categorical
+from tensorflow.keras.utils import to_categorical
 from tensorflow.keras import layers
 from tensorflow.keras.losses import binary_crossentropy
 from tensorflow.python.keras import backend as K
@@ -21,7 +21,7 @@ from tensorflow.python.keras.layers import (
     Dense, Dropout, Flatten, Input
 )
 import matplotlib.pyplot as plt
-flpath = 'drive/My Drive/crispor/models/'
+flpath = 'd:/Programme/git/dl-offtarget/'
 #
 #
 def lstmmdl(

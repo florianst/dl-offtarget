@@ -10,7 +10,7 @@ Version |Date |   Author|   Comment
 #
 import numpy as np
 import tensorflow as tf
-from keras.utils import to_categorical
+from tensorflow.keras.utils import to_categorical
 #import tensorflow.python.keras as tfkeras
 from tensorflow.keras.losses import categorical_crossentropy
 from tensorflow.python.keras import backend as K
@@ -22,7 +22,7 @@ from tensorflow.python.keras.layers import (
     Dense, Dropout, Flatten, Input)
 import matplotlib.pyplot as plt
 p = print
-flpath = 'drive/My Drive/crispor/models/'
+flpath = 'd:/Programme/git/dl-offtarget/'
 #
 #
 def transformImages(

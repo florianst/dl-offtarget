@@ -10,7 +10,7 @@ Version |Date | Author| Comment
 import os
 import numpy as np
 import pandas as pd
-from keras.utils import to_categorical
+from tensorflow.keras.utils import to_categorical
 from tensorflow.python.keras import backend as K
 from sklearn.metrics import (
 	classification_report, roc_auc_score,
@@ -150,12 +150,12 @@ def plotRocCurve(
 		if len(ytests[indx].shape) == 2:
 			fprs, tprs, _ = roc_curve(
 				ytests[indx][:,icol],
-				estimator.predict(xtests[indx])[:,icol]
+				estimator.predict(xtests[indx].astype('float32'))[:,icol]
 			)
 		else:
 			fprs, tprs, _ = roc_curve(
 				ytests[indx],
-				estimator.predict_proba(xtests[indx])[:,icol]
+				estimator.predict_proba(xtests[indx].astype('float32'))[:,icol]
 			)
 		#
 		plt.plot(
