@@ -82,6 +82,11 @@ guideseq4x23 = Bunch(
     images=(dfGuideSeq4x23.values*254).reshape(-1, 4, 23, order='F'))
 plt.imshow(guideseq4x23.images[0], cmap='Greys')
 
+# we create the pkl file for later use
+pickle_out = open("guideseq4x23.pkl","wb")
+pkl.dump(guideseq4x23, pickle_out)
+pickle_out.close()
+
 # we have to transform the RNA and DNA sequences to
 # a 8x23 image
 # we create a new column on the crispor data df
@@ -111,3 +116,8 @@ guideseq8x23 = Bunch(
     images=im)
 plt.imshow(guideseq8x23.images[0], cmap='Greys')
 plt.savefig('guideseq8x23.pdf')
+
+# we create the pkl file for later use
+pickle_out = open("guideseq8x23.pkl","wb")
+pkl.dump(guideseq8x23, pickle_out)
+pickle_out.close()

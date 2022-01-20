@@ -130,7 +130,7 @@ encoded4x23 = Bunch(
 )
 plt.imshow(encoded4x23.images[0], cmap='Greys')
 
-ispickle = False
+ispickle = True
 if ispickle is True:
 	# we create the pkl file for later use
 	pickle_out = open("encoded4x23withoutTsai.pkl","wb")
@@ -162,9 +162,9 @@ for iline in range(len(put_mm_score)):
 	arr = arr.reshape((4,23), order='F')
 	# check if the encoded sgRNA-DNA sequence is > 2. => reshape is incorrect
 	if (np.sum(arr, axis=0) > 3).any() == True:
-    	raise ValueError("Incorrect reshape of the flattening. Error at line ", iline)
+		raise ValueError("Incorrect reshape of the flattening. Error at line ", iline)
 
-  	for n in range(arr.shape[1]):
+	for n in range(arr.shape[1]):
 		loc_bp = np.where(arr[:,n] == 1)[0]
 		indx_seq = 0
 		for indx_loc_bp in loc_bp:
@@ -222,7 +222,7 @@ digits = Bunch(
 print(plt.imshow(im[0], cmap='Greys'))
 #
 #
-iswritepkl = False
+iswritepkl = True
 if iswritepkl is True:
 	# we create the pkl file for later use
 	pickle_out = open("encoded8x23withoutTsai.pkl","wb")
